@@ -1,0 +1,24 @@
+{
+  "name": "unity-stack-solutions",
+  "version": "1.0.0",
+  "description": "Unity Stack App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jinali00/Unity-Stack-Solutions.git"
+  },
+  "author": "Unity Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jinali00/Unity-Stack-Solutions/issues"
+  },
+  "homepage": "https://github.com/Jinali00/Unity-Stack-Solutions#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  }
+}
