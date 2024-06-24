@@ -5,6 +5,7 @@ import { connectDatabase } from "./config/dbConnect.js";
 dotenv.config({ path: 'backend/config/config.env' });
 import errorMiddleware from "./middlewares/errors.js";
 
+
 //Handle Uncaught Exceptions
 process.on('uncaughtException', (err) =>{
     console.log(`Error: ${err}`);
