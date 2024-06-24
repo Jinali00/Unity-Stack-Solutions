@@ -1,0 +1,31 @@
+{
+  "name": "unity-stack-solutions",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Unity Stack App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node backend/app.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/app.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/app.js",
+    "seeder": "node backend/seeder/seeder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jinali00/Unity-Stack-Solutions.git"
+  },
+  "author": "Unity Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jinali00/Unity-Stack-Solutions/issues"
+  },
+  "homepage": "https://github.com/Jinali00/Unity-Stack-Solutions#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
