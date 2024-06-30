@@ -1,0 +1,65 @@
+module.exports = {
+  // add messages over here
+  // controller messgaes
+  GENERAL: {
+    GENERAL_ERROR_CONTENT: "Something went wrong. Please try again later.",
+    UNAUTHORIZED_USER: "Unauthorized, please login.",
+    RESTRICTED_USER: "You are not authorized to do this operation.",
+    INVALID_LOGIN: "You are not authorized.",
+    BLACKLIST_MAIL: `Please enter a valid email, we don't allow dummy emails.`,
+    INVALID_IMAGE: "Please upload valid image.",
+    INVALID_ID: "Please enter valid id.",
+    INVALID_DOC: "Please upload document.",
+    GET_LIST: "Get list successfully.",
+    NOT_FOUND: "List not found.",
+    NOT_TOKEN: "Token not found.",
+    JWT_EXPIRED: "JWT is expired, Please login again.",
+    PASSWORD_NOT_ALLOW: "Password can not be edit by user.",
+    ROUTE_NOT_FOUND: "404 :Request route not found",
+  },
+
+  USER: {
+    EMAIL_ALREDAY_EXIST: "This email is already exist in this App.",
+    LOGIN_SUCCESS: "Login successfully.",
+    SIGNUP_SUCCESS: "User Created successfully.",
+    LOGOUT_SUCCESS: "Logout successfully.",
+    LOGOUT_FAIL: "Error while logging you out.",
+    RESETPASSWORD_SUCCESS: "Your password has been updated successfully.",
+    FORGOTPASSWORD_SUCCESS: "Your password has been updated successfully.",
+    USERDETAIL_NOT_AVAILABLE: "User details not found.",
+    INVALIDOLDPASSWORD: "Please enter valid current password.",
+    INVALIDPASSWORD: "Incorrect password.",
+    PASSWORDMINLENGTH: "Your password must contain at least 6 characters.",
+    FORGOTEMAILSEND: "Forgot email send successfully.",
+  },
+
+  TIMESHEET: {
+    CREATED_SUCCESSFULLY: "Timesheet created successfully.",
+    EDIT_TIMESHEET_SUCCESS: "Edit timesheet successfully.",
+    GET_TIMESHHET_SUCCESS: "Timesheet list get successfully.",
+    TIMESHEET_NOT_FOUND: "Timesheet not found.",
+    DELETE_TIMESHEET_SUCCESS: "Delete timesheet successfully.",
+  },
+
+  TASK_STATUS: {
+    ADD_TASK_STATUS_SUCCESS: "Added task status successfully.",
+    TASK_STATUS_EXISTS: "Task status already exists.",
+    TASK_STATUS_EXISTS: "task already exists.",
+    GET_ALL_TASK_SUCCESS: "Get all tasks successfully.",
+    FETCH_TASK_STATUS_SUCCESS: "Fetched  task status successfully.",
+    TASK_STATUS_NOT_FOUND: "Task status not found.",
+    UPDATE_TASK_STATUS_SUCCESS: "Updated task status successfully.",
+    TASK_STATUS_NOT_UPDATED: "Task status not/unable to updated",
+    DELETE_TASK_STATUS_SUCCESS: "Deleted task status successfully.",
+    TASK_STATUS_NOT_DELETED: "Task status not/unable to delete.",
+  },
+  DEPARTMENT: {
+    DEPARTMENT_ALREADY_EXIST: "Department already exists.",
+    CREATED_SUCCESSFULLY: "Department created successfully.",
+    DEPARTMENT_NOT_EXIST: "Department doesn't exist.",
+    DELETED_SUCCESSFULLY: "Department deleted successfully.",
+    UPDATED_SUCCESSFULLY: "Department updated successfully.",
+    GET_DEPARTMENT: "Department details got successfully.",
+    GET_ALL_DEPARTMENT: "All departments got successfully.",
+  },
+};
