@@ -36,7 +36,7 @@ exports.addDefaultAdmin = async () => {
     console.log("Admin data:", {
       company_email: userData.company_email,
       password: password,
-      toke: auth_token,
+      token: auth_token,
     });
   }
 };
