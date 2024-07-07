@@ -10,10 +10,9 @@ const Footer = () => {
 					{' '}
 					<div className='row'>
 						<div className='col-lg-6'>
-							<h4>Our Newsletter</h4>
+							<h4>Join Urban Cart and Unlock Special Deals!</h4>
 							<p>
-								Tamen quem nulla quae legam multos aute sint culpa legam noster
-								magna
+							   Join our Urban Cart community and be the first to know about exclusive deals and new arrivals!
 							</p>{' '}
 						</div>
 						<div className='col-lg-6'>
@@ -56,46 +55,24 @@ const Footer = () => {
 								</li>
 							</ul>{' '}
 						</div>{' '}
-						<div className='col-lg-3 col-md-6 footer-links'>
-							<h4>Our Services</h4>
-							<ul>
-								<li>
-									<i className='bx bx-chevron-right'></i> <a href='#'>Web Design</a>
-								</li>
-								<li>
-									<i className='bx bx-chevron-right'></i>{' '}
-									<a href='#'>Web Development</a>
-								</li>
-								<li>
-									<i className='bx bx-chevron-right'></i>{' '}
-									<a href='#'>Product Management</a>
-								</li>
-								<li>
-									<i className='bx bx-chevron-right'></i> <a href='#'>Marketing</a>
-								</li>
-								<li>
-									<i className='bx bx-chevron-right'></i>{' '}
-									<a href='#'>Graphic Design</a>
-								</li>
-							</ul>{' '}
-						</div>
+						
 						<div className='col-lg-3 col-md-6 footer-contact'>
 							<h4>Contact Us</h4>
 							<p>
 								{' '}
-								A108 Adam Street <br /> New York, NY 535022
-								<br /> United States <br />
-								<br /> <strong>Phone:</strong> +1 5589 55488 55
-								<br /> <strong>Email:</strong> info@example.com
+								75 Watline Av. <br /> Mississaugua, ON L4Z 3E5
+								<br /> Canada <br />
+								<br /> <strong>Phone:</strong> +1 (905)-768-4576
+								<br /> <strong>Email:</strong> shopurbancart@gmail.com
 								<br />{' '}
 							</p>{' '}
 						</div>
 						<div className='col-lg-3 col-md-6 footer-info'>
-							<h3>About DevVE</h3>
+							<h3>About Urban Cart</h3>
 							<p>
-								Cras fermentum odio eu feugiat lide par naso tierra. Justo eget
-								nada terra videa magna derita valies darta donna mare fermentum
-								iaculis eu non diam phasellus.
+							Welcome to Urban Cart, your ultimate destination for curated lifestyle products that blend style, 
+							quality, and affordability. Founded with a vision to make everyday living more exciting,
+							Urban Cart offers a diverse range of items that cater to your needs and preferences.
 							</p>
 
 							<div className='social-links mt-3'>
@@ -123,13 +100,13 @@ const Footer = () => {
 					{' '}
 					&copy; Copyright{' '}
 					<strong>
-						<span>DevVE</span>
+						<span>Urban Cart</span>
 					</strong>
 					. All Rights Reserved{' '}
 				</div>{' '}
 				<div className='credits'>
 					{' '}
-					Designed by <a href='#'>SalvadorDevVE</a>{' '}
+					Designed by <a href='#'>UnityStack Solutions</a>{' '}
 				</div>{' '}
 			</div>
 		</footer>

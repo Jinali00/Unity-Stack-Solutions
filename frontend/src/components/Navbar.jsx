@@ -2,7 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { authSlice } from '../store';
+import Search from './Search';
 // import { useSelector } from 'react-redux'
+import './index.scss'
 
 const Navbar = () => {
 	const [userDetails, setUserDetails] = useRecoilState(authSlice);
@@ -14,11 +16,11 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className='navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top'>
+		<nav className='navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top justify-content-center'>
 			<div className='container d-flex align-items-center justify-content-between w-100'>
 				<NavLink className='navbar-brand fw-bold fs-4 px-2' to='/'>
 					{' '}
-					React Ecommerce
+					Urban Cart
 				</NavLink>
 				<button
 					className='navbar-toggler mx-2'
@@ -31,14 +33,11 @@ const Navbar = () => {
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<input
-					type='text'
-					className='form-control'
-					style={{ flex: 1 }}
-					id='search'
-					placeholder='Search...'
-				/>
-				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
+				{window.innerWidth > 568 && <Search />}
+				<div
+					className='collapse navbar-collapse flex-grow-0'
+					id='navbarSupportedContent'
+				>
 					<div className='d-flex align-items-center buttons text-center flex-nowrap'>
 						{userDetails && userDetails?.userToken ? (
 							<button
@@ -50,22 +49,23 @@ const Navbar = () => {
 						) : (
 							<>
 								<NavLink to='/login' className='btn btn-outline-dark w-max m-2'>
-									<i className='fa fa-sign-in-alt mr-1'></i> Login
+									Login
 								</NavLink>
 								<NavLink
 									to='/register'
 									className='btn btn-outline-dark w-max m-2'
 								>
-									<i className='fa fa-user-plus mr-1'></i> Register
+									Register
 								</NavLink>
 							</>
 						)}
 						<NavLink to='/cart' className='btn btn-outline-dark m-2'>
-							<i className='fa fa-cart-shopping mr-1'></i> Cart{' '}
+							Cart{' '}
 						</NavLink>
 					</div>
 				</div>
 			</div>
+			{window.innerWidth < 568 && <Search />}
 		</nav>
 	);
 };
