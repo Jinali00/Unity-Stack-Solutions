@@ -30,24 +30,24 @@ const productSchema = new mongoose.Schema({
     },
   ],
   category: {
-    type: String,
-    enum: {
-      values: [
-        "Electronics",
-        "Cameras",
-        "Laptops",
-        "Accessories",
-        "Headphones",
-        "Food",
-        "Books",
-        "Clothes/Shoes",
-        "Beauty/Health",
-        "Sports",
-        "Outdoor",
-        "Home",
-      ],
-      message: "Please select correct category for product",
-    },
+    type: String
+    // enum: {
+    //   values: [
+    //     "Electronics",
+    //     "Cameras",
+    //     "Laptops",
+    //     "Accessories",
+    //     "Headphones",
+    //     "Food",
+    //     "Books",
+    //     "Clothes/Shoes",
+    //     "Beauty/Health",
+    //     "Sports",
+    //     "Outdoor",
+    //     "Home",
+    //   ],
+    //   message: "Please select correct category for product",
+    // },
   },
   seller: {
     type: String,
