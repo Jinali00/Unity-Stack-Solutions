@@ -17,6 +17,7 @@ export const newProduct = catchAsyncErrors (async (req,res) => {
     res.status(200).json({product,});
 });
 
+
 // get single product => /api/v1/products/:id
 export const getProductDetails = catchAsyncErrors (async (req,res, next) => {
     const product = await Product.findById(req?.params?.id);

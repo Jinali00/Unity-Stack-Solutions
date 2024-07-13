@@ -32,6 +32,12 @@ module.exports = {
     PASSWORDMINLENGTH: "Your password must contain at least 6 characters.",
     FORGOTEMAILSEND: "Forgot email send successfully.",
   },
+  PRODUCT: {
+    PRODUCT_NOT_FOUND: "Product not found.",
+    ALREADY_EXIST: "Product already added.",
+    PRODUCT_ADD: "Product added to cart.",
+    PRODUCT_REMOVE: "Product remove from cart.",
+  },
 
   TIMESHEET: {
     CREATED_SUCCESSFULLY: "Timesheet created successfully.",

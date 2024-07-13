@@ -1,6 +1,5 @@
 const constants = require("../../config/constants");
 const Product = require("../../models/product.model");
-const data = require("../../seeder/data");
 const { sendResponse } = require("../../services/common.services");
 
 const getAllProduct = async (req, res, next) => {
@@ -68,6 +67,43 @@ const getAllProduct = async (req, res, next) => {
   }
 };
 
+const getByIdProduct = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    const product = await Product.findById(id);
+
+    if (!product) {
+      return sendResponse(
+        res,
+        constants.WEB_STATUS_CODE.BAD_REQUEST,
+        constants.STATUS_CODE.NOT_FOUND,
+        "GENERAL.NOT_FOUND",
+        null,
+        req.headers.lang
+      );
+    }
+    return sendResponse(
+      res,
+      constants.WEB_STATUS_CODE.OK,
+      constants.STATUS_CODE.SUCCESS,
+      "GENERAL.GET_LIST",
+      product,
+      req.headers.lang
+    );
+  } catch (err) {
+    console.log("Error(getByIdProduct)..", err);
+    return sendResponse(
+      res,
+      constants.WEB_STATUS_CODE.SERVER_ERROR,
+      constants.STATUS_CODE.FAIL,
+      "GENERAL.GENERAL_ERROR_CONTENT",
+      { message: err.message },
+      req.headers.lang
+    );
+  }
+};
+
 const addProduct = async (req, res, next) => {
   try {
     // data.map(async (data) => await Product.create(data));
@@ -86,4 +122,4 @@ const addProduct = async (req, res, next) => {
     );
   }
 };
-module.exports = { getAllProduct, addProduct };
+module.exports = { getAllProduct, addProduct, getByIdProduct };
