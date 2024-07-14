@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { get } from '../httpService';
 import './index.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
+	const navigate = useNavigate();
 	const [search, setSearch] = useState(null);
 	const [searchData, setSearchData] = useState([]);
 
@@ -43,6 +45,11 @@ const Search = () => {
 							<div
 								key={`search-product-${index}`}
 								className='list-item d-flex justify-content-between align-items-center'
+								style={{ cursor: 'pointer' }}
+								onClick={() => {
+									navigate(`/product/${product?._id}`);
+									setSearch('');
+								}}
 							>
 								<div className='d-flex flex-row align-items-center'>
 									<div className='product-image'>

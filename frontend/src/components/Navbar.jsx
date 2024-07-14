@@ -1,14 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { authSlice } from '../store';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { authSlice, cartItems } from '../store';
 import Search from './Search';
-// import { useSelector } from 'react-redux'
-import './index.scss'
+import './index.scss';
 
 const Navbar = () => {
 	const [userDetails, setUserDetails] = useRecoilState(authSlice);
-	// const state = useSelector(state => state.handleCart)
+	const cartElements = useRecoilValue(cartItems);
 
 	const handleLogout = () => {
 		localStorage.removeItem('userToken');
@@ -60,7 +59,7 @@ const Navbar = () => {
 							</>
 						)}
 						<NavLink to='/cart' className='btn btn-outline-dark m-2'>
-							Cart{' '}
+							{`Cart(${cartElements?.length})`}
 						</NavLink>
 					</div>
 				</div>
