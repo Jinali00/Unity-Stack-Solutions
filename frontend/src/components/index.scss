@@ -43,3 +43,25 @@
 		}
 	}
 }
+
+
+
+.custom-pagination {
+	justify-content: center;
+	margin: 24px 8px;
+
+	.page-item {
+		a {
+			color: #0eaaff ; // Text color
+			border-color: #0eaaff; // Border color
+		}
+	}
+
+    .page-item.active {
+		span {
+			color: #fff !important; // Text color
+			background-color: #0eaaff !important; // Border color
+			border-color: #0eaaff; // Border color
+		}
+	}
+}
