@@ -1,12 +1,11 @@
 // ProductCard.js
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { addItemToCart } from '../store';
+import { useCartActions } from '../hooks/useCartActions';
 
 const ProductCard = ({ product = {} }) => {
 	const navigate = useNavigate();
-	const setCart = useSetRecoilState(addItemToCart);
+	const { addItemToCart } = useCartActions();
 
 	return (
 		<div
@@ -36,7 +35,7 @@ const ProductCard = ({ product = {} }) => {
 					onClick={(event) => {
 						event.preventDefault();
 						event.stopPropagation();
-						setCart(product);
+						addItemToCart(product);
 					}}
 				>
 					Add to Cart
