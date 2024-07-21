@@ -1,12 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import {
-	addItemToCart,
-	cartDetailsSelector,
-	cartItems,
-	removeItemFromCart,
-} from '../store';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { cartDetails, cartItems } from '../store';
 
 const EmptyCart = () => {
 	return (
@@ -23,84 +18,10 @@ const EmptyCart = () => {
 	);
 };
 
-const CartItemCard = ({ product = {} }) => {
-	const removeItem = useSetRecoilState(removeItemFromCart);
-	const addItem = useSetRecoilState(addItemToCart);
-	const { productDetails, qty } = product || {};
-
-	return productDetails ? (
-		<div key={productDetails?._id}>
-			<div className='row d-flex align-items-center'>
-				<div className='col-lg-3 col-md-12'>
-					<div className='bg-image rounded' data-mdb-ripple-color='light'>
-						<img
-							src={productDetails?.images[0]?.url}
-							// className="w-100"
-							alt={productDetails.name}
-							width={100}
-							height={75}
-						/>
-					</div>
-				</div>
-
-				<div className='col-lg-5 col-md-6'>
-					<p>
-						<strong>{productDetails?.name}</strong>
-					</p>
-				</div>
-
-				<div className='col-lg-4 col-md-6'>
-					<div className='d-flex mb-4' style={{ maxWidth: '300px' }}>
-						<button
-							className='btn px-3'
-							onClick={() => {
-								removeItem(productDetails);
-							}}
-						>
-							-
-						</button>
-
-						<p
-							className='px-5'
-							style={{
-								border: '1px solid #000',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
-							}}
-						>
-							{qty}
-						</p>
-
-						<button
-							className='btn px-3'
-							onClick={() => {
-								addItem(productDetails);
-							}}
-						>
-							+
-						</button>
-					</div>
-
-					<p className='text-start text-md-center'>
-						<strong>
-							<span className='text-muted'>{qty}</span> x $
-							{productDetails?.price}
-						</strong>
-					</p>
-				</div>
-			</div>
-
-			<hr className='my-4' />
-		</div>
-	) : (
-		<></>
-	);
-};
-
-const ShowCart = ({ config = [] }) => {
-	const { subtotal, shipping, totalItems } =
-		useRecoilValue(cartDetailsSelector);
+const ShowCart = () => {
+	const location = useLocation();
+	const { subtotal, tax, shipping, itemCount, cartTotal } =
+		useRecoilValue(cartDetails);
 
 	return (
 		<>
@@ -108,21 +29,7 @@ const ShowCart = ({ config = [] }) => {
 				<div className='container py-5'>
 					<div className='row d-flex justify-content-center my-4'>
 						<div className='col-md-8'>
-							<div className='card mb-4'>
-								<div className='card-header py-3'>
-									<h5 className='mb-0'>Item List</h5>
-								</div>
-								<div className='card-body'>
-									{config.map((item, index) => {
-										return (
-											<CartItemCard
-												key={`cart-item-${item?.productDetails?._id}`}
-												product={item}
-											/>
-										);
-									})}
-								</div>
-							</div>
+							<Outlet />
 						</div>
 						<div className='col-md-4'>
 							<div className='card mb-4'>
@@ -131,30 +38,36 @@ const ShowCart = ({ config = [] }) => {
 								</div>
 								<div className='card-body'>
 									<ul className='list-group list-group-flush'>
-										<li className='list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0'>
-											Products ({totalItems})
-											<span>${Math.round(subtotal)}</span>
+										<li className='list-group-item d-flex justify-content-between align-items-center px-0'>
+											Products ({itemCount})<span>${subtotal}</span>
 										</li>
 										<li className='list-group-item d-flex justify-content-between align-items-center px-0'>
 											Shipping
 											<span>${shipping}</span>
+										</li>
+										<li className='list-group-item d-flex justify-content-between align-items-center px-0'>
+											Tax
+											<span>${tax}</span>
 										</li>
 										<li className='list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3'>
 											<div>
 												<strong>Total amount</strong>
 											</div>
 											<span>
-												<strong>${Math.round(subtotal + shipping)}</strong>
+												<strong>${cartTotal}</strong>
 											</span>
 										</li>
 									</ul>
 
-									<Link
-										// to='/checkout'
-										className='btn btn-dark btn-lg btn-block'
-									>
-										Go to checkout
-									</Link>
+									{location.pathname === '/cart' && (
+										<Link
+											to='checkout'
+											style={{ cursor: 'pointer' }}
+											className='btn w-100 btn-dark btn-lg btn-block'
+										>
+											Go to checkout
+										</Link>
+									)}
 								</div>
 							</div>
 						</div>
@@ -170,17 +83,17 @@ const Cart = () => {
 	const cartElements = useRecoilValue(cartItems);
 
 	return userToken ? (
-		<>
-			<div className='container my-3 py-3'>
-				<h1 className='text-center'>Cart</h1>
-				<hr />
-				{cartElements.length > 0 ? (
-					<ShowCart config={cartElements} />
-				) : (
-					<EmptyCart />
-				)}
-			</div>
-		</>
+		<div className='container my-3 py-3'>
+			<h1 className='text-center'>
+				{location.pathname === '/cart/checkout' ? 'Checkout' : 'Cart'}
+			</h1>
+			<hr />
+			{cartElements.length > 0 ? (
+				<ShowCart config={cartElements} />
+			) : (
+				<EmptyCart />
+			)}
+		</div>
 	) : (
 		<div className='container'>
 			<div className='row'>

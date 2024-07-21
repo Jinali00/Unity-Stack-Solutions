@@ -21,21 +21,14 @@ const Navbar = () => {
 					{' '}
 					Urban Cart
 				</NavLink>
-				<button
-					className='navbar-toggler mx-2'
-					type='button'
-					data-toggle='collapse'
-					data-target='#navbarSupportedContent'
-					aria-controls='navbarSupportedContent'
-					aria-expanded='false'
-					aria-label='Toggle navigation'
-				>
-					<span className='navbar-toggler-icon'></span>
-				</button>
+				<button className="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+				
 				{window.innerWidth > 568 && <Search />}
 				<div
 					className='collapse navbar-collapse flex-grow-0'
-					id='navbarSupportedContent'
+					id="navbarSupportedContent"
 				>
 					<div className='d-flex align-items-center buttons text-center flex-nowrap'>
 						{userDetails && userDetails?.userToken ? (
@@ -57,6 +50,11 @@ const Navbar = () => {
 									Register
 								</NavLink>
 							</>
+						)}
+						{userDetails && userDetails?.userToken && (
+							<NavLink to='/orders' className='btn btn-outline-dark m-2'>
+								{`My Orders`}
+							</NavLink>
 						)}
 						<NavLink to='/cart' className='btn btn-outline-dark m-2'>
 							{`Cart(${cartElements?.length})`}

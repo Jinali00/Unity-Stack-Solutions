@@ -1,15 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useCartActions } from '../hooks/useCartActions';
 import { getProductDetails } from '../store/requestService';
-import { useSetRecoilState } from 'recoil';
-import { addItemToCart } from '../store';
 
 const ProductDetails = () => {
-	const setCart = useSetRecoilState(addItemToCart);
+	const { addItemToCart } = useCartActions();
+
 	const { productId } = useParams();
 	const [product, setProduct] = useState(null);
 	const [thumbnail, setThumbnail] = useState(product?.images[0]);
-	const [quantity, setQuantity] = useState(1);
 
 	const imagesArray = useMemo(() => {
 		return product?.images?.filter(
@@ -112,51 +111,10 @@ const ProductDetails = () => {
 							</div>
 
 							<hr />
-
-							<div className='row mb-4'>
-								<div className='col-md-4 col-6 mb-3'>
-									<label className='mb-2 d-block'>Quantity</label>
-									<div className='input-group mb-3' style={{ width: '170px' }}>
-										<button
-											className='btn btn-white border border-secondary px-3'
-											type='button'
-											id='button-addon1'
-											data-mdb-ripple-color='dark'
-											onClick={() => {
-												if (quantity > 1) {
-													setQuantity((prev) => prev - 1);
-												}
-											}}
-										>
-											-
-										</button>
-										<input
-											type='text'
-											className='form-control text-center border border-secondary'
-											placeholder={quantity}
-											aria-label='Example text with button addon'
-											aria-describedby='button-addon1'
-										/>
-										<button
-											className='btn btn-white border border-secondary px-3'
-											type='button'
-											id='button-addon2'
-											data-mdb-ripple-color='dark'
-											onClick={() => {
-												if (product?.stock > quantity) {
-													setQuantity((prev) => prev + 1);
-												}
-											}}
-										>
-											+
-										</button>
-									</div>
-								</div>
-							</div>
 							<div
 								href='#'
 								className='btn btn-primary shadow-0'
-								onClick={() => setCart(product, quantity)}
+								onClick={() => addItemToCart(product)}
 							>
 								<i className='me-1 fa fa-shopping-basket'></i> Add to cart
 							</div>
