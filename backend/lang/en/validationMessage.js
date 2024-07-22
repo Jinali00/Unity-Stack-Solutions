@@ -22,6 +22,13 @@ module.exports = {
     CONFIRM_PASSWORD_SIZE: "Confirm Password must have atleast 6 letters.",
     RESET_TOKEN_REQUIRED: "Reset password token is required.",
     NEW_OLD_PASSWORD_VALIDATION: "Confirm password and new password must be same.",
+    NEW_OLD_PASSWORD_VALIDATION: "Confirm password and new password must be same.",
+  },
+  CART_VALIDATION:{
+    VALID_PRODUCT_ID:"Please enter valid product_id.",
+    PRODUCT_ID_REQUIRED:"Product Id is required.",
+    QUANTITY_REQUIRED:"Product Quantity is required.",
+    QUANTITY_VALID:"Product Quantity must be atleast 1.",
   },
   PROJECT_VALIDATION: {
     PROJECT_NAME_REQUIRED: "Project Name is required.",

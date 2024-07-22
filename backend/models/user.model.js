@@ -31,7 +31,15 @@ let userSchema = new mongoose.Schema({
     type: String,
     minlength: 6,
   },
-
+  shipping_address: {
+    type: String,
+  },
+  billing_address: {
+    type: String,
+  },
+  contact: {
+    type: String,
+  },
   auth_token: {
     type: String,
   },

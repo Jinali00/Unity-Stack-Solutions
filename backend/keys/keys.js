@@ -7,6 +7,8 @@ module.exports = {
   EMAIL_POST: process.env.EMAIL_POST,
   EMAIL: process.env.EMAIL,
   EMAIL_PASS: process.env.EMAIL_PASS,
+  RZP_KEY_ID: process.env.RZP_KEY_ID,
+  RZP_KEY_SECRET: process.env.RZP_KEY_SECRET,
   SWAGGER_BASE_URL: process.env.SWAGGER_BASE_URL,
   JWT_AUTH_SECRET: process.env.JWT_AUTH_SECRET,
   SWAGGER_SERVER_URL: process.env.SWAGGER_SERVER_URL,
