@@ -39,33 +39,12 @@ module.exports = {
     PRODUCT_REMOVE: "Product remove from cart.",
   },
 
-  TIMESHEET: {
-    CREATED_SUCCESSFULLY: "Timesheet created successfully.",
-    EDIT_TIMESHEET_SUCCESS: "Edit timesheet successfully.",
-    GET_TIMESHHET_SUCCESS: "Timesheet list get successfully.",
-    TIMESHEET_NOT_FOUND: "Timesheet not found.",
-    DELETE_TIMESHEET_SUCCESS: "Delete timesheet successfully.",
-  },
-
-  TASK_STATUS: {
-    ADD_TASK_STATUS_SUCCESS: "Added task status successfully.",
-    TASK_STATUS_EXISTS: "Task status already exists.",
-    TASK_STATUS_EXISTS: "task already exists.",
-    GET_ALL_TASK_SUCCESS: "Get all tasks successfully.",
-    FETCH_TASK_STATUS_SUCCESS: "Fetched  task status successfully.",
-    TASK_STATUS_NOT_FOUND: "Task status not found.",
-    UPDATE_TASK_STATUS_SUCCESS: "Updated task status successfully.",
-    TASK_STATUS_NOT_UPDATED: "Task status not/unable to updated",
-    DELETE_TASK_STATUS_SUCCESS: "Deleted task status successfully.",
-    TASK_STATUS_NOT_DELETED: "Task status not/unable to delete.",
-  },
-  DEPARTMENT: {
-    DEPARTMENT_ALREADY_EXIST: "Department already exists.",
-    CREATED_SUCCESSFULLY: "Department created successfully.",
-    DEPARTMENT_NOT_EXIST: "Department doesn't exist.",
-    DELETED_SUCCESSFULLY: "Department deleted successfully.",
-    UPDATED_SUCCESSFULLY: "Department updated successfully.",
-    GET_DEPARTMENT: "Department details got successfully.",
-    GET_ALL_DEPARTMENT: "All departments got successfully.",
+  CART: {
+    CART_NOT_FOUND: "Cart not found.",
+    ORDER_PLACED: "Your order already placed.",
+    ORDER_CREATED: "Order created successfully.",
+    ORDER_PLACED: "Order placed successfully.",
+    ORDER_FAIL: "Order cancel successfully.",
+    SIGN_INVALID: "Payment signature is incorrect.",
   },
 };
